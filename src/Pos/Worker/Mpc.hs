@@ -91,7 +91,8 @@ mpcOnNewSlot SlotId {..} = do
 -- Exceptions:
 -- 1. Worker which ticks when new slot starts.
 mpcWorkers :: WorkMode m => [m ()]
-mpcWorkers = [mpcTransmitter]
+mpcWorkers = mempty
+-- mpcWorkers = [mpcTransmitter]
 
 mpcTransmitter :: WorkMode m => m ()
 mpcTransmitter =

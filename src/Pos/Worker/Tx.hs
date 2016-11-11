@@ -19,7 +19,7 @@ import           Pos.WorkMode              (WorkMode)
 -- Exceptions:
 -- 1. Worker which ticks when new slot starts.
 txWorkers :: WorkMode m => [m ()]
-txWorkers = [txsTransmitter]
+txWorkers = mempty -- [txsTransmitter]
 
 txsTransmitterInterval :: Microsecond
 txsTransmitterInterval = slotDuration

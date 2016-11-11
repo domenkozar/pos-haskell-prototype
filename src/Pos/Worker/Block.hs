@@ -82,7 +82,7 @@ onNewSlotWhenLeader slotId = do
 -- Exceptions:
 -- 1. Worker which ticks when new slot starts.
 blkWorkers :: WorkMode m => [m ()]
-blkWorkers = [blocksTransmitter]
+blkWorkers = mempty -- [blocksTransmitter]
 
 blocksTransmitterInterval :: Microsecond
 blocksTransmitterInterval = slotDuration `div` 2

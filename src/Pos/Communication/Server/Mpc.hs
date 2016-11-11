@@ -50,7 +50,8 @@ handleSscDo
 handleSscDo items f announce = do
     added <- toList <$> mapM (uncurry f) items
     let addedItems = map snd . filter fst . zip added . toList $ items
-    whenJust (nonEmpty addedItems) announce
+    -- whenJust (nonEmpty addedItems) announce
+    pass
 
 -- TODO: refactor, lol! :)
 handleCommitment :: WorkMode m => PublicKey -> SignedCommitment -> m Bool

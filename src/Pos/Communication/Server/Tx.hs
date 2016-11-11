@@ -54,4 +54,5 @@ handleTxs
 handleTxs (SendTxs txs) = do
     added <- toList <$> mapM (handleTx . SendTx) txs
     let addedItems = map snd . filter fst . zip added . toList $ txs
-    announceTxs addedItems
+    pass
+    -- announceTxs addedItems

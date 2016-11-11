@@ -78,11 +78,11 @@ handleBlock (SendBlock block) = do
     propagateBlock pbr
 
 propagateBlock :: WorkMode m => St.ProcessBlockRes SscDynamicState -> m ()
-propagateBlock (St.PBRgood (_, blocks)) =
-    either (const pass) announceBlock header
-  where
-    blk = NE.last blocks
-    header = getBlockHeader blk
+-- propagateBlock (St.PBRgood (_, blocks)) =
+--     either (const pass) announceBlock header
+--   where
+--     blk = NE.last blocks
+--     header = getBlockHeader blk
 propagateBlock _ = pass
 
 handleBlockHeader
