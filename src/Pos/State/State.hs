@@ -13,6 +13,7 @@
 module Pos.State.State
        ( NodeState
        , MonadDB (getNodeState)
+       , MonadSscLD (getSscLocalData)
        , WorkModeDB
        , openState
        , openMemState
@@ -79,6 +80,9 @@ instance (Monad m, MonadDB ssc m) => MonadDB ssc (ReaderT r m) where
 
 instance (Monad m, MonadDB ssc m) => MonadDB ssc (DHTResponseT m) where
     getNodeState = lift getNodeState
+
+class Ssc ssc => MonadSscLD ssc m where
+    getSscLocalData :: m (LocalData ssc)
 
 type WorkModeDB ssc m = (MonadIO m, MonadDB ssc m)
 type NodeState ssc = DiskState ssc
