@@ -63,6 +63,7 @@ type WorkMode ssc m
       , MonadSlots m
       , MonadDB ssc m
       , SscStorageMode ssc
+      , MonadSscLD ssc m,
       , WithNodeContext m
       , MonadMessageDHT m
       , WithDefaultMsgHeader m
